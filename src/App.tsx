@@ -1,3 +1,5 @@
+import { Feed } from "./pages/Feed";
+
 export function App() {
-  return <h1>Hello World</h1>;
+  return <Feed />;
 }
