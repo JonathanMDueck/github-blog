@@ -1,5 +1,16 @@
-import { Feed } from "./pages/Feed";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { defaultTheme } from "./styles/themes/default";
+import { Router } from "./Router";
+import { GlobalStyle } from "./styles/global";
 
 export function App() {
-  return <Feed />;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router />
+        <GlobalStyle />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
 }
