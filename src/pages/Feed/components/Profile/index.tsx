@@ -19,9 +19,9 @@ export function Profile() {
       <ProfileContent>
         <Name>
           <span>Jonathan Dueck</span>
-          <button>
+          <a href="https://github.com/jonathanmdueck">
             <img src={GithubLink} alt="" />
-          </button>
+          </a>
         </Name>
         <Description>
           Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu

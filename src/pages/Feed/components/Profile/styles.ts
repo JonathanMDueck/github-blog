@@ -1,9 +1,8 @@
 import { styled } from "styled-components";
 
 export const ProfileContainer = styled.div`
-  width: 100%;
-  max-width: 864px;
-  height: 212px;
+  max-width: 54rem;
+  height: 13.25rem;
 
   margin: 0 auto;
   margin-top: -5.5rem;
@@ -37,7 +36,7 @@ export const Name = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  button {
+  a {
     border: none;
     background: transparent;
     cursor: pointer;
