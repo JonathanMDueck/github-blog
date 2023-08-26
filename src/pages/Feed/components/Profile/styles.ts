@@ -1,10 +1,8 @@
 import { styled } from "styled-components";
 
 export const ProfileContainer = styled.div`
-  max-width: 54rem;
   height: 13.25rem;
 
-  margin: 0 auto;
   margin-top: -5.5rem;
 
   background: ${(props) => props.theme["gray-700"]};
