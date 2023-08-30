@@ -25,6 +25,8 @@ export const Post = styled.div`
   padding: 2rem;
 
   overflow: hidden;
+
+  cursor: pointer;
 `;
 
 export const PostTitle = styled.div`

@@ -23,5 +23,9 @@ export const GlobalStyle = createGlobalStyle`
         font: 400 1rem Nunito, sans-serif;
     }
 
+    html {
+        overflow-y: scroll;
+    }
+
 
 `;

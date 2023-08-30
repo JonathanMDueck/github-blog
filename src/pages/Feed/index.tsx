@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Profile } from "./components/Profile";
 import { SearchForm } from "./components/SearchForm";
 import {
@@ -9,12 +10,18 @@ import {
 } from "./styles";
 
 export function Feed() {
+  const navigate = useNavigate();
+
+  function navigateToIssueDetails() {
+    navigate("/issue-details");
+  }
+
   return (
     <FeedContainer>
       <Profile />
       <SearchForm />
       <PostContainer>
-        <Post>
+        <Post onClick={navigateToIssueDetails}>
           <PostTitle>
             <span>JavaScript data types and data structures</span>
             <p>Há um dia</p>
