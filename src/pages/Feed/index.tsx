@@ -10,6 +10,7 @@ import {
 } from "./styles";
 
 export function Feed() {
+
   const navigate = useNavigate();
 
   function navigateToIssueDetails() {

@@ -17,7 +17,7 @@ export const Post = styled.div`
   width: 26rem;
   height: 16.25rem;
 
-  border: 0;
+  border: 1px solid ${props => props.theme["gray-700"]};
   border-radius: 10px;
 
   background: ${(props) => props.theme["gray-600"]};
@@ -27,6 +27,13 @@ export const Post = styled.div`
   overflow: hidden;
 
   cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    border-color: ${(props) => props.theme["gray-200"]};
+  }
+  
 `;
 
 export const PostTitle = styled.div`
