@@ -11,8 +11,18 @@ import GithubIcon from "../../../../assets/GithubIcon.svg";
 import CalendarIcon from "../../../../assets/CalendarIcon.svg";
 import CommentsIcon from "../../../../assets/CommentsIcon.svg";
 import { useNavigate } from "react-router-dom";
+import { formatDistanceToNow } from "date-fns";
+import ptBR from 'date-fns/locale/pt-BR'
 
-export function IssueTitle() {
+type IssueTitleProps = {
+  title: string;
+  url: string;
+  login: string;
+  created_at: Date;
+  comments: number;
+}
+
+export function IssueTitle({ title, url, login, created_at, comments }: IssueTitleProps) {
   const navigate = useNavigate();
 
   function navigateToHome() {
@@ -23,23 +33,26 @@ export function IssueTitle() {
     <IssueTitleContainer>
       <LinksContainer>
         <img src={BackIcon} alt="" onClick={navigateToHome} />
-        <a href="https://github.com/">
+        <a href={url} target="_blank">
           <img src={SeeOnGithub} alt="" />
         </a>
       </LinksContainer>
-      <p>JavaScript data types and data structures</p>
+      <p>{title}</p>
       <InfoTagsContainer>
         <InfoTag>
           <img src={GithubIcon} alt="" />
-          <span>JonathanMDueck</span>
+          <span>{login}</span>
         </InfoTag>
         <InfoTag>
           <img src={CalendarIcon} alt="" />
-          <span>Há 1 dia</span>
+          <span>{formatDistanceToNow(new Date(created_at), {
+            addSuffix: true,
+            locale: ptBR
+          })}</span>
         </InfoTag>
         <InfoTag>
           <img src={CommentsIcon} alt="" />
-          <span>5 comentários</span>
+          <span>{comments} comentários</span>
         </InfoTag>
       </InfoTagsContainer>
     </IssueTitleContainer>

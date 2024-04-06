@@ -13,7 +13,7 @@ import CompanyIcon from "../../../../assets/CompanyIcon.svg";
 import FollowersIcon from "../../../../assets/FollowersIcon.svg";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../../contexts/userContext";
-import { usersApi } from "../../../../lib/axios";
+import { api } from "../../../../lib/axios";
 
 export function Profile() {
 
@@ -23,15 +23,16 @@ export function Profile() {
   const [userCompany, setUserCompany] = useState('');
   const [userFollowers, setUserFollowers] = useState('');
   const [userBio, setUserBio] = useState('');
-
+  const [name, setName] = useState('');
 
   function getUserInfo() {
-    usersApi.get(userName)
+    api.get(`/users/${userName}`)
       .then(response => {
         setUserLogin(response.data.login)
         setUserCompany(response.data.company)
         setUserFollowers(response.data.followers)
         setUserBio(response.data.bio)
+        setName(response.data.name)
       })
   }
 
@@ -41,10 +42,10 @@ export function Profile() {
 
   return (
     <ProfileContainer>
-      <ProfilePicture src="https://github.com/jonathanmdueck.png" alt="" />
+      <ProfilePicture src={`https://github.com/${userName}.png`} alt="" />
       <ProfileContent>
         <Name>
-          <span>Jonathan Dueck</span>
+          <span>{name}</span>
           <a href={`https://github.com/${userName}`} target="_blank">
             <img src={GithubLink} alt="" />
           </a>
